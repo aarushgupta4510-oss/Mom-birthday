@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 50th Birthday, Mom!</title>
+    <style>
+        /* Global Styles & Golden/Black Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #f4e0ad;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Gold Text & Accents */
+        .gold-text {
+            color: #d4af37;
+            text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .gold-button {
+            background: linear-gradient(135deg, #b38728, #fbf5b7, #daa520, #aa771c);
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .gold-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 1px solid #332200;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            font-size: 2rem;
+            font-style: italic;
+            color: #e5c158;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #a6a6a6;
+            letter-spacing: 2px;
+        }
+
+        /* Suspense / Countdown Section */
+        .suspense-box {
+            background: #141414;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin: 50px auto;
+            max-width: 700px;
+            box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.1);
+        }
+
+        .suspense-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Interactive Letter Section */
+        .letters-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .letters-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .envelope {
+            background: #1a1a1a;
+            border: 1px solid #443311;
+            border-radius: 8px;
+            width: 320px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .envelope:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+        }
+
+        .envelope-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .letter-content {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #554422;
+            color: #f0e6cc;
+            font-style: italic;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .active .letter-content {
+            display: block;
+        }
+
+        /* Timeline / Journey Section */
+        .timeline {
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .timeline-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .milestone {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #e5c158;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <p>CELEBRATING A GOLDEN MILESTONE</p>
+            <h1 class="gold-text">Sunita Gupta</h1>
+            <h2>The Queen of Hearts Turns 50</h2>
+            <p>Born: July 9, 1976</p>
+        </header>
+
+        <section class="suspense-box">
+            <h3 class="suspense-title gold-text">A Message from Your Children...</h3>
+            <p style="margin-bottom: 25px; line-height: 1.6;">
+                Mom, you've spent 50 incredible years filling our lives with light, warmth, and unconditional love. Today, we wanted to create something timeless just for you. Click below to unlock our hearts.
+            </p>
+            <button class="gold-button" onclick="revealSurprise()">Reveal the Surprise</button>
+            <div id="surprise-message" style="display:none; margin-top: 25px; font-size: 1.3rem; color: #fff; animation: fadeIn 1.5s;">
+                ✨ <strong>Surprise! Happy 50th Birthday!</strong> ✨<br>
+                You aren't just getting older, you are getting more golden. Scroll down to read our secret letters to you!
+            </div>
+        </section>
+
+        <section class="letters-section">
+            <h2 class="gold-text" style="font-size: 2.5rem;">Love Letters to Mom</h2>
+            <p style="color: #a6a6a6;">Click an envelope to read your secret birthday letters</p>
+
+            <div class="letters-grid">
+                <div class="envelope" onclick="toggleLetter(this)">
+                    <div class="envelope-icon">✉</div>
+                    <h3>From Your Eldest</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Click to open</p>
+                    <div class="letter-content">
+                        "To the woman who gave me everything: Thank you for being my rock, my guide, and my best friend. Watching you navigate life with such grace has been my greatest inspiration. Happy 50th, Mom! I love you endlessly."
+                    </div>
+                </div>
+
+                <div class="envelope" onclick="toggleLetter(this)">
+                    <div class="envelope-icon">✉</div>
+                    <h3>From Your Youngest</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Click to open</p>
+                    <div class="letter-content">
+                        "Happy Golden Birthday, Mom! Thank you for always believing in me, even when I didn't believe in myself. Your laughter fills our home with so much joy. I'm so incredibly lucky to call you my mother."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <h2 class="timeline-title gold-text">50 Years of Grace</h2>
+            <div class="milestone">✨ 1976 — A star was born.</div>
+            <div class="milestone">✨ Over the Years — Raising a beautiful family with infinite patience.</div>
+            <div class="milestone">✨ 2026 — Stepping into the golden era, more loved than ever.</div>
+        </section>
+
+        <footer>
+            Made with love by your favorite children. Happy 50th Birthday, Mom!
+        </footer>
+    </div>
+
+    <script>
+        function revealSurprise() {
+            var x = document.getElementById("surprise-message");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function toggleLetter(element) {
+            element.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
