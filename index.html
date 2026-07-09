@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 50th Birthday, Mom!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <style>
         /* Global Styles & Golden/Black Theme */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', serif;
         }
 
         body {
             background-color: #0b0b0b;
             color: #f4e0ad;
+            font-family: 'Playfair Display', serif;
             background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
             background-size: 24px 24px;
             overflow-x: hidden;
@@ -29,22 +33,25 @@
 
         /* Gold Text & Accents */
         .gold-text {
+            font-family: 'Cinzel', serif;
             color: #d4af37;
             text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.3);
         }
 
         .gold-button {
+            font-family: 'Cinzel', serif;
             background: linear-gradient(135deg, #b38728, #fbf5b7, #daa520, #aa771c);
             color: #000;
             border: none;
             padding: 12px 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
             border-radius: 5px;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
+            letter-spacing: 1px;
         }
 
         .gold-button:hover {
@@ -61,23 +68,24 @@
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             letter-spacing: 4px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         header h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-style: italic;
             color: #e5c158;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
             color: #a6a6a6;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         /* Suspense / Countdown Section */
@@ -88,12 +96,12 @@
             padding: 40px;
             text-align: center;
             margin: 50px auto;
-            max-width: 700px;
+            max-width: 750px;
             box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.1);
         }
 
         .suspense-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
@@ -107,7 +115,7 @@
         .letters-grid {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-top: 40px;
         }
@@ -116,7 +124,7 @@
             background: #1a1a1a;
             border: 1px solid #443311;
             border-radius: 8px;
-            width: 320px;
+            width: 340px;
             padding: 30px;
             cursor: pointer;
             transition: all 0.4s ease;
@@ -129,10 +137,16 @@
             transform: translateY(-5px);
         }
 
+        .envelope h3 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
         .envelope-icon {
             font-size: 3rem;
             color: #d4af37;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .letter-content {
@@ -142,8 +156,9 @@
             border-top: 1px dashed #554422;
             color: #f0e6cc;
             font-style: italic;
-            line-height: 1.6;
+            line-height: 1.7;
             text-align: left;
+            font-size: 1.05rem;
         }
 
         .active .letter-content {
@@ -157,23 +172,25 @@
         }
 
         .timeline-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 40px;
         }
 
         .milestone {
-            font-size: 1.5rem;
-            margin: 20px 0;
+            font-size: 1.6rem;
+            margin: 25px 0;
             color: #e5c158;
         }
 
         /* Footer */
         footer {
+            font-family: 'Cinzel', serif;
             text-align: center;
             padding: 40px;
             color: #777;
             font-size: 0.9rem;
             border-top: 1px solid #222;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -189,36 +206,45 @@
 
         <section class="suspense-box">
             <h3 class="suspense-title gold-text">A Message from Your Children...</h3>
-            <p style="margin-bottom: 25px; line-height: 1.6;">
+            <p style="margin-bottom: 25px; line-height: 1.8; font-size: 1.1rem;">
                 Mom, you've spent 50 incredible years filling our lives with light, warmth, and unconditional love. Today, we wanted to create something timeless just for you. Click below to unlock our hearts.
             </p>
             <button class="gold-button" onclick="revealSurprise()">Reveal the Surprise</button>
-            <div id="surprise-message" style="display:none; margin-top: 25px; font-size: 1.3rem; color: #fff; animation: fadeIn 1.5s;">
+            <div id="surprise-message" style="display:none; margin-top: 25px; font-size: 1.3rem; color: #fff; animation: fadeIn 1.5s; line-height: 1.6;">
                 ✨ <strong>Surprise! Happy 50th Birthday!</strong> ✨<br>
                 You aren't just getting older, you are getting more golden. Scroll down to read our secret letters to you!
             </div>
         </section>
 
         <section class="letters-section">
-            <h2 class="gold-text" style="font-size: 2.5rem;">Love Letters to Mom</h2>
-            <p style="color: #a6a6a6;">Click an envelope to read your secret birthday letters</p>
+            <h2 class="gold-text" style="font-size: 2.8rem; margin-bottom: 10px;">Love Letters to Mom</h2>
+            <p style="color: #a6a6a6; font-size: 1.1rem;">Click an envelope to read your secret birthday letters</p>
 
             <div class="letters-grid">
                 <div class="envelope" onclick="toggleLetter(this)">
                     <div class="envelope-icon">✉</div>
-                    <h3>From Your Eldest</h3>
+                    <h3>From The Eldest</h3>
                     <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Click to open</p>
                     <div class="letter-content">
-                        "To the woman who gave me everything: Thank you for being my rock, my guide, and my best friend. Watching you navigate life with such grace has been my greatest inspiration. Happy 50th, Mom! I love you endlessly."
+                        "To the woman who gave me everything: Thank you for being my rock, my guide, and my best friend. Watching you navigate life with such grace has been my greatest inspiration. Happy 50th, Mom! I love you endlessly (and thank you for making me the trailblazer of the pack!)."
                     </div>
                 </div>
 
                 <div class="envelope" onclick="toggleLetter(this)">
                     <div class="envelope-icon">✉</div>
-                    <h3>From Your Youngest</h3>
+                    <h3 class="gold-text">The Middle Child</h3>
+                    <p style="font-size: 0.85rem; color: #d4af37; margin-top: 5px;">Click for the truth</p>
+                    <div class="letter-content">
+                        "Happy 50th, Mom! They say middle children are the most independent, but honestly, that's just because you were too busy dealing with the other two! Thank you for surviving 50 years of life, and more importantly, surviving us. Don't worry, I won't tell the others that I'm secretly your favorite. Love you to bits!"
+                    </div>
+                </div>
+
+                <div class="envelope" onclick="toggleLetter(this)">
+                    <div class="envelope-icon">✉</div>
+                    <h3>From The Youngest</h3>
                     <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Click to open</p>
                     <div class="letter-content">
-                        "Happy Golden Birthday, Mom! Thank you for always believing in me, even when I didn't believe in myself. Your laughter fills our home with so much joy. I'm so incredibly lucky to call you my mother."
+                        "Happy Golden Birthday, Mom! Thank you for always believing in me and letting me get away with everything the older two couldn't. Your laughter fills our home with so much joy. I'm so incredibly lucky to call you my mother!"
                     </div>
                 </div>
             </div>
@@ -227,7 +253,7 @@
         <section class="timeline">
             <h2 class="timeline-title gold-text">50 Years of Grace</h2>
             <div class="milestone">✨ 1976 — A star was born.</div>
-            <div class="milestone">✨ Over the Years — Raising a beautiful family with infinite patience.</div>
+            <div class="milestone">✨ Over the Years — Raising three crazy kids with infinite patience.</div>
             <div class="milestone">✨ 2026 — Stepping into the golden era, more loved than ever.</div>
         </section>
 
