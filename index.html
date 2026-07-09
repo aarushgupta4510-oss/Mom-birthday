@@ -62,33 +62,30 @@
         /* Hero Section */
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
             border-bottom: 1px solid #332200;
             position: relative;
+            background: #000000;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 4rem;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
+        header::before, header::after {
+            content: "🎉";
+            font-size: 4.5rem;
+            position: absolute;
+            bottom: 20px;
+            filter: drop-shadow(0px 0px 15px #d4af37);
+            animation: pop 1s ease-out infinite alternate;
         }
 
-        header h2 {
-            font-size: 2.2rem;
-            font-style: italic;
-            color: #e5c158;
-            margin-bottom: 25px;
-        }
+        header::before { left: 5%; transform: rotate(45deg); }
+        header::after { right: 5%; transform: rotate(-45deg) scaleX(-1); }
 
-        header p {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: #a6a6a6;
-            letter-spacing: 3px;
-        }
+        header h1 { font-size: 4rem; letter-spacing: 4px; margin-bottom: 15px; text-transform: uppercase; }
+        header h2 { font-size: 2.2rem; font-style: italic; color: #e5c158; margin-bottom: 25px; }
+        header p { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #a6a6a6; letter-spacing: 3px; }
 
-        /* Suspense / Countdown Section */
+        /* Suspense Box */
         .suspense-box {
             background: #141414;
             border: 2px solid #d4af37;
@@ -96,102 +93,114 @@
             padding: 40px;
             text-align: center;
             margin: 50px auto;
-            max-width: 750px;
+            max-width: 850px;
             box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.1);
-        }
-
-        .suspense-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        /* Interactive Letter Section */
-        .letters-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .letters-grid {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .envelope {
-            background: #1a1a1a;
-            border: 1px solid #443311;
-            border-radius: 8px;
-            width: 340px;
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.4s ease;
             position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
-        .envelope:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px);
-        }
-
-        .envelope h3 {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1px;
-            margin-top: 10px;
-        }
-
-        .envelope-icon {
-            font-size: 3rem;
-            color: #d4af37;
-            margin-bottom: 10px;
-        }
-
-        .letter-content {
+        /* THE FLYING CHAPPAL SYSTEM */
+        .chappal-overlay {
             display: none;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px dashed #554422;
-            color: #f0e6cc;
-            font-style: italic;
-            line-height: 1.7;
-            text-align: left;
-            font-size: 1.05rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
-        .active .letter-content {
-            display: block;
-        }
-
-        /* Timeline / Journey Section */
-        .timeline {
-            margin: 80px 0;
-            text-align: center;
-        }
-
-        .timeline-title {
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-        }
-
-        .milestone {
-            font-size: 1.6rem;
-            margin: 25px 0;
-            color: #e5c158;
-        }
-
-        /* Footer */
-        footer {
+        .siren-text {
+            color: #ff3333;
+            font-size: 3rem;
             font-family: 'Cinzel', serif;
-            text-align: center;
-            padding: 40px;
-            color: #777;
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-            letter-spacing: 1px;
+            font-weight: bold;
+            animation: flash 0.5s infinite alternate;
+            position: absolute;
+            top: 20%;
         }
+
+        .chappal {
+            font-size: 10rem;
+            position: absolute;
+            left: -200px;
+            bottom: -200px;
+            transform: rotate(0deg);
+        }
+
+        .chappal.fly {
+            animation: launchChappal 1.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @keyframes flash {
+            0% { opacity: 0.2; text-shadow: 0 0 10px #ff0000; }
+            100% { opacity: 1; text-shadow: 0 0 30px #ff3333; }
+        }
+
+        @keyframes launchChappal {
+            0% { left: -200px; bottom: -200px; transform: rotate(0deg) scale(0.5); }
+            50% { transform: rotate(720deg) scale(2); }
+            100% { left: 120vw; bottom: 120vh; transform: rotate(1440deg) scale(0.2); }
+        }
+
+        /* Collage Layout */
+        .collage-container {
+            display: none;
+            position: relative;
+            width: 100%;
+            min-height: 500px;
+            margin-top: 35px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .collage-img {
+            position: absolute;
+            width: 165px;
+            height: 165px;
+            object-fit: cover;
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .collage-img.pop-in { opacity: 1; transform: scale(1); }
+        
+        .img1 { top: 20px; left: 5%; transform: rotate(-12deg) scale(0); }
+        .img1.pop-in { transform: rotate(-12deg) scale(1); }
+        .img2 { top: 40px; left: 38%; transform: rotate(8deg) scale(0); }
+        .img2.pop-in { transform: rotate(8deg) scale(1.15); z-index: 5; }
+        .img3 { top: 20px; right: 5%; transform: rotate(-8deg) scale(0); }
+        .img3.pop-in { transform: rotate(-8deg) scale(1); }
+        .img4 { bottom: 30px; left: 10%; transform: rotate(15deg) scale(0); }
+        .img4.pop-in { transform: rotate(15deg) scale(1.05); }
+        .img5 { bottom: 50px; left: 40%; transform: rotate(-10deg) scale(0); }
+        .img5.pop-in { transform: rotate(-10deg) scale(1); }
+        .img6 { bottom: 30px; right: 8%; transform: rotate(18deg) scale(0); }
+        .img6.pop-in { transform: rotate(18deg) scale(1.1); }
+
+        /* Interactive Letters */
+        .letters-section { padding: 60px 0; text-align: center; }
+        .letters-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 40px; }
+        .envelope { background: #1a1a1a; border: 1px solid #443311; border-radius: 8px; width: 340px; padding: 30px; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .envelope:hover { border-color: #d4af37; transform: translateY(-5px); }
+        .envelope h3 { font-family: 'Cinzel', serif; margin-top: 10px; }
+        .envelope-icon { font-size: 3rem; color: #d4af37; }
+        .letter-content { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px dashed #554422; color: #f0e6cc; font-style: italic; line-height: 1.7; text-align: left; }
+        .active .letter-content { display: block; }
+
+        /* Timeline & Footer */
+        .timeline { margin: 80px 0; text-align: center; }
+        .timeline-title { font-size: 2.8rem; margin-bottom: 40px; }
+        .milestone { font-size: 1.6rem; margin: 25px 0; color: #e5c158; }
+        footer { font-family: 'Cinzel', serif; text-align: center; padding: 40px; color: #777; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -205,44 +214,50 @@
         </header>
 
         <section class="suspense-box">
-            <h3 class="suspense-title gold-text">A Message from Your Children...</h3>
-            <p style="margin-bottom: 25px; line-height: 1.8; font-size: 1.1rem;">
-                Mom, you've spent 50 incredible years filling our lives with light, warmth, and unconditional love. Today, we wanted to create something timeless just for you. Click below to unlock our hearts.
+            <h3 class="suspense-title gold-text">⚠️ MOM'S PROXIMITY SENSOR ⚠️</h3>
+            <p id="warning-text" style="margin-bottom: 25px; line-height: 1.8; font-size: 1.1rem;">
+                Mom, we know you've trained for 50 years to develop the ultimate aiming accuracy. Click below to test your reflexes one more time!
             </p>
-            <button class="gold-button" onclick="revealSurprise()">Reveal the Surprise</button>
-            <div id="surprise-message" style="display:none; margin-top: 25px; font-size: 1.3rem; color: #fff; animation: fadeIn 1.5s; line-height: 1.6;">
-                ✨ <strong>Surprise! Happy 50th Birthday!</strong> ✨<br>
-                You aren't just getting older, you are getting more golden. Scroll down to read our secret letters to you!
+            <button id="action-btn" class="gold-button" onclick="triggerChappalAttack()">Activate Target</button>
+            
+            <div id="chappal-alert" class="chappal-overlay">
+                <div class="siren-text">🚨 CHAPPAL INCOMING!! DODGE!! 🚨</div>
+                <div id="flying-chappal" class="chappal">🩴</div>
+            </div>
+
+            <div id="photo-collage" class="collage-container">
+                <p style="color: #fff; font-size: 1.5rem; margin-bottom: 25px; font-weight: bold; text-shadow: 0 0 10px #d4af37;">
+                    💥 DIRECT HIT! Happy 50th Birthday, Mom! 💥
+                </p>
+                <img src="1000033886.jpg" class="collage-img img1" alt="Mom 1">
+                <img src="1000025177.jpg" class="collage-img img2" alt="Mom 2">
+                <img src="1000025217.jpg" class="collage-img img3" alt="Mom 3">
+                <img src="1000025214.jpg" class="collage-img img4" alt="Mom 4">
+                <img src="1000025207.jpg" class="collage-img img5" alt="Mom 5">
+                <img src="1000001571.jpg" class="collage-img img6" alt="Mom 6">
             </div>
         </section>
 
         <section class="letters-section">
             <h2 class="gold-text" style="font-size: 2.8rem; margin-bottom: 10px;">Love Letters to Mom</h2>
-            <p style="color: #a6a6a6; font-size: 1.1rem;">Click an envelope to read your secret birthday letters</p>
-
             <div class="letters-grid">
                 <div class="envelope" onclick="toggleLetter(this)">
                     <div class="envelope-icon">✉</div>
                     <h3>From The Eldest</h3>
-                    <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Click to open</p>
                     <div class="letter-content">
                         "To the woman who gave me everything: Thank you for being my rock, my guide, and my best friend. Watching you navigate life with such grace has been my greatest inspiration. Happy 50th, Mom! I love you endlessly (and thank you for making me the trailblazer of the pack!)."
                     </div>
                 </div>
-
                 <div class="envelope" onclick="toggleLetter(this)">
                     <div class="envelope-icon">✉</div>
                     <h3 class="gold-text">The Middle Child</h3>
-                    <p style="font-size: 0.85rem; color: #d4af37; margin-top: 5px;">Click for the truth</p>
                     <div class="letter-content">
                         "Happy 50th, Mom! They say middle children are the most independent, but honestly, that's just because you were too busy dealing with the other two! Thank you for surviving 50 years of life, and more importantly, surviving us. Don't worry, I won't tell the others that I'm secretly your favorite. Love you to bits!"
                     </div>
                 </div>
-
                 <div class="envelope" onclick="toggleLetter(this)">
                     <div class="envelope-icon">✉</div>
                     <h3>From The Youngest</h3>
-                    <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Click to open</p>
                     <div class="letter-content">
                         "Happy Golden Birthday, Mom! Thank you for always believing in me and letting me get away with everything the older two couldn't. Your laughter fills our home with so much joy. I'm so incredibly lucky to call you my mother!"
                     </div>
@@ -263,13 +278,34 @@
     </div>
 
     <script>
-        function revealSurprise() {
-            var x = document.getElementById("surprise-message");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
+        function triggerChappalAttack() {
+            var overlay = document.getElementById("chappal-alert");
+            var chappal = document.getElementById("flying-chappal");
+            var btn = document.getElementById("action-btn");
+            var warningText = document.getElementById("warning-text");
+            var collageContainer = document.getElementById("photo-collage");
+
+            // Hide initial layout elements inside box
+            btn.style.display = "none";
+            warningText.style.display = "none";
+
+            // Open full screen alarm overlay
+            overlay.style.display = "flex";
+            chappal.classList.add("fly");
+
+            // After 1.5 seconds (when chappal completes its flight path across screen)
+            setTimeout(function() {
+                overlay.style.display = "none"; // Hide emergency overlay
+                collageContainer.style.display = "block"; // Open collage container
+                
+                // Pop photos in rapidly with staggered effect
+                var images = document.querySelectorAll(".collage-img");
+                images.forEach(function(img, index) {
+                    setTimeout(function() {
+                        img.classList.add("pop-in");
+                    }, index * 150);
+                });
+            }, 1500);
         }
 
         function toggleLetter(element) {
